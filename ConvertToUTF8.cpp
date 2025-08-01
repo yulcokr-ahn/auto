@@ -8,6 +8,26 @@ UTF-16LE/UTF-16BE 감지 및 변환	✅
 EUC-KR 감지 (기본적으로 CP949로 처리)	✅
 UTF-8 BOM으로 저장	✅
 
+int wmain(int argc, wchar_t* argv[]) {
+    if (argc != 2) {
+        wprintf(L"사용법: 프로그램 <파일경로>\n");
+        return 1;
+    }
+
+    if (ConvertFileToUTF8(argv[1])) {
+        wprintf(L"변환 성공: %s\n", argv[1]);
+    } else {
+        wprintf(L"변환 실패 또는 이미 UTF-8입니다.\n");
+    }
+
+    return 0;
+}
+
+
+
+
+
+    
 🧩 전체 코드: ConvertToUTF8.cpp
 cpp
 복사
